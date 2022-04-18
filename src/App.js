@@ -8,24 +8,86 @@ import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import appstore from "../src/images/appstore.png"
 import playstore from "../src/images/playstore.png"
 
+import insta_main from "../src/images/insta_main.png"
+import insta_1 from "../src/images/insta_1.png"
+import insta_2 from "../src/images/insta_2.png"
+import insta_3 from "../src/images/insta_3.png"
+import insta_4 from "../src/images/insta_4.png"
+import React from 'react';
+
+
+
 const Container = styled.div`
   position: relative;
-  min-height: 100vh;
+  min-height: 109.8vh;
+
 `
+
+const Section = styled.div`
+  height: 95vh;
+  margin: 0 auto;
+  display: flex;
+`
+const CarouselContainer = styled.div`
+width: 50%;
+
+@media (max-width: 1028px) {
+  display: none;
+}
+`
+
+const Body = styled.div`
+width: 50%;
+
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1028px) {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @media (max-width: 1028px) {
+    width: 100%;
+    margin-top: 2.5rem;
+  }
+
+`
+
+const Carousel = styled.div`
+width: 390.31px;
+height: 590.15px
+border: 3px solid red;
+margin-left: auto;
+margin-top: 2.5rem;
+
+  img {
+    width: 100%;
+  }
+`
+
+const CarouselBoard = styled.div`
+position: relative;
+top: 0;
+left: 0;
+`
+
 
 const LoginForm = styled.div`
   width: 348px;
   height: 374px;
   border: 1px solid rgb(219, 219, 219);
-  margin: 0 auto;
   margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  @media (max-width: 48em) {
+  @media (max-width: 24em) {
     border: 0;
     height: 310px;
+  }
+
+  @media (max-width: 1028px) {
+    margin: 0 auto;
   }
 `
 
@@ -121,7 +183,6 @@ const FacebookLogin = styled.div`
   margin-top: 1.5rem;
   margin-bottom: 0.3rem;
   height: 38px;
-  cursor: pointer;
 `
 
 const FacebookButton = styled.button`
@@ -132,6 +193,7 @@ const FacebookButton = styled.button`
   padding: 0;
   color: #385185;
   font-size: 14px;
+  cursor: pointer;
 
   span {
 
@@ -151,13 +213,27 @@ const ForgotPassword = styled.a`
  }
 `
 
+const PlainText = styled.div`
+padding: 0.8rem 0;
+max-width: 348px;
+max-height: 63px;
+font-size: 14px;
+
+span {
+  margin: -3px 5px -4px;
+}
+
+@media (max-width: 1028px) {
+  margin: 0 auto;
+}
+`
+
 const Signup = styled.div`
-  padding: 1.5rem 0;
+  padding: 1.3rem 0;
   max-width: 348px;
   max-height: 63px;
   border: 1px solid rgb(219, 219, 219);
-  margin: 0 auto;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   font-size: 14px;
   
   span {
@@ -169,13 +245,17 @@ const Signup = styled.div`
     font-weight: 600;
   }
 
-  @media (max-width: 48em) {
+  @media (max-width: 30em) {
     border: 0;
+  }
+
+  @media (max-width: 1028px) {
+    margin: 0 auto;
+    margin-top: 0.8rem;
   }
 `
 
 const Stores = styled.div`
-  margin: 0 auto;
   max-width: 348px;
   height: 44px;
   margin-bottom: 4rem;
@@ -187,6 +267,9 @@ const Stores = styled.div`
     margin-right: 5px;
   }
 
+  @media (max-width: 1028px) {
+    margin: 0 auto;
+  }
 `
 
 const Footer = styled.div`
@@ -195,7 +278,6 @@ margin: 0 auto;
 color: rgb(142, 142, 142);
 position: absolute;
 bottom: 0;
-margin-top: 2rem;
 
 
 @media (max-width: 48em) {
@@ -233,92 +315,122 @@ margin-top: 10px;
 cursor: pointer;
 `
 
-const Body = styled.div`
-  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+const Slides = styled.img`
+  position: relative;
+  width: 219px !important;
+  height: 504px !important;
+  position: absolute;
+  top: 24.5px;
+  right: 45px;
 
 `
 
-function App() {
-  return (
-    <div className="App">
-      <Container>
-        <Body>
-          <LoginForm>
-            <Header>
-              <img src={instagram_header} alt='instagram_header'></img>
-            </Header>
-            <FormBox>
-              <Input>
-                <label for="username"></label>
-                <input name="username" placeholder='Phone number, username or email address'></input>
-              </Input>
-              <Input>
-                <label for="password"></label>
-                <input name="password" placeholder='Password'></input>
-              </Input>
-              <Button>
-                <button>Log In</button>
-              </Button>
-              <Seperator>
-                <Divider></Divider>
-              </Seperator>
-              <FacebookLogin>
-                <FacebookButton>
-                  <FontAwesomeIcon icon={faFacebookSquare} style={{ marginRight: '4px' }} />
-                  Log in with Facebook
-                </FacebookButton>
-              </FacebookLogin>
-              <ForgotPassword>
-                Forgotten your password?
-              </ForgotPassword>
-            </FormBox>
-          </LoginForm>
-          <Signup>
-            <span>Don't have an account?</span>
-            <a>Sign up</a>
-          </Signup>
-          <div style={{ margin: '1rem 0', fontSize: '14px' }}>Get the app.</div>
-          <Stores>
-            <img src={appstore}></img>
-            <img src={playstore}></img>
-          </Stores>
-        </Body>
+class App extends React.Component {
 
-        <Footer>
-          <Nav>
-            <NavItems>Meta</NavItems>
-            <NavItems>About</NavItems>
-            <NavItems>Blog</NavItems>
-            <NavItems>Jobs</NavItems>
-            <NavItems>Help</NavItems>
-            <NavItems>API</NavItems>
-            <NavItems>Privacy</NavItems>
-            <NavItems>Terms</NavItems>
-            <NavItems>Top accounts</NavItems>
-            <NavItems>Hashtags</NavItems>
-            <NavItems>Locations</NavItems>
-            <NavItems>Instagram Lite</NavItems>
-          </Nav>
-          <Nav2>
-            <NavItems>Dance</NavItems>
-            <NavItems>Food &amp; drink</NavItems>
-            <NavItems>Home &amp; garden</NavItems>
-            <NavItems>Music</NavItems>
-            <NavItems>Visual arts</NavItems>
-          </Nav2>
-          <Nav style={{ marginTop: '0' }}>
-            <NavItems>English (UK)</NavItems>
-            <NavItems style={{ cursor: 'default' }}>© 2022 Instagram from Meta</NavItems>
-          </Nav>
-        </Footer>
-      </Container>
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      images: [insta_1, insta_2, insta_3, insta_4],
+      activeImageIndex: 0,
+    };
+  }
+
+  componentDidMount() {
+    setInterval(() => {
+      let newActiveIndex = this.state.activeImageIndex === 3 ? 0 : this.state.activeImageIndex + 1
+      this.setState({
+        activeImageIndex: newActiveIndex
+      })
+    }, 3000);
+  }
+
+  render() {
+    return (
+      <div className="App" >
+        <Container>
+          <Section>
+            <CarouselContainer>
+              <Carousel>
+                <CarouselBoard>
+                  <img src={insta_main} style={{ position: 'relative', top: '0', left: '0', height: '590px'}}></img>
+                  <Slides src={this.state.images[this.state.activeImageIndex]} style={{}}></Slides>
+                </CarouselBoard>
+              </Carousel>
+            </CarouselContainer>
+            <Body>
+              <LoginForm>
+                <Header>
+                  <img src={instagram_header} alt='instagram_header'></img>
+                </Header>
+                <FormBox>
+                  <Input>
+                    <label for="username"></label>
+                    <input name="username" placeholder='Phone number, username or email address'></input>
+                  </Input>
+                  <Input>
+                    <label for="password"></label>
+                    <input name="password" placeholder='Password'></input>
+                  </Input>
+                  <Button>
+                    <button>Log In</button>
+                  </Button>
+                  <Seperator>
+                    <Divider></Divider>
+                  </Seperator>
+                  <FacebookLogin>
+                    <FacebookButton>
+                      <FontAwesomeIcon icon={faFacebookSquare} style={{ marginRight: '4px' }} />
+                      Log in with Facebook
+                    </FacebookButton>
+                  </FacebookLogin>
+                  <ForgotPassword>
+                    Forgotten your password?
+                  </ForgotPassword>
+                </FormBox>
+              </LoginForm>
+              <Signup>
+                <span>Don't have an account?</span>
+                <a>Sign up</a>
+              </Signup>
+              <PlainText><span>Get the app.</span></PlainText>
+              <Stores>
+                <img src={appstore}></img>
+                <img src={playstore}></img>
+              </Stores>
+            </Body>
+          </Section>
+          <Footer>
+            <Nav>
+              <NavItems>Meta</NavItems>
+              <NavItems>About</NavItems>
+              <NavItems>Blog</NavItems>
+              <NavItems>Jobs</NavItems>
+              <NavItems>Help</NavItems>
+              <NavItems>API</NavItems>
+              <NavItems>Privacy</NavItems>
+              <NavItems>Terms</NavItems>
+              <NavItems>Top accounts</NavItems>
+              <NavItems>Hashtags</NavItems>
+              <NavItems>Locations</NavItems>
+              <NavItems>Instagram Lite</NavItems>
+            </Nav>
+            <Nav2>
+              <NavItems>Dance</NavItems>
+              <NavItems>Food &amp; drink</NavItems>
+              <NavItems>Home &amp; garden</NavItems>
+              <NavItems>Music</NavItems>
+              <NavItems>Visual arts</NavItems>
+            </Nav2>
+            <Nav style={{ marginTop: '0' }}>
+              <NavItems>English (UK)</NavItems>
+              <NavItems style={{ cursor: 'default' }}>© 2022 Instagram from Meta</NavItems>
+            </Nav>
+          </Footer>
+        </Container>
+      </div>
+    );
+  }
+
 }
 
 export default App;
